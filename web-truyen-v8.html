@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Truyện Chữ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap">
+<style>
+:root{color-scheme:light;--bg:#f4f1ea;--fg:#2b2a28;--mut:#78746c;--card:#fff;--bd:#e2ddd1;--ac:#b5472a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-theme="sepia"]){color-scheme:dark;--bg:#141518;--fg:#d9d6cf;--mut:#8b8880;--card:#1e2024;--bd:#33353a;--ac:#e08a6c}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#141518;--fg:#d9d6cf;--mut:#8b8880;--card:#1e2024;--bd:#33353a;--ac:#e08a6c}
+:root[data-theme="sepia"]{--bg:#efe2c2;--fg:#3b2f1e;--mut:#85755a;--card:#f6ecd3;--bd:#dccaa0;--ac:#8a3b1e}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:7px 13px;cursor:pointer}button:hover{border-color:var(--ac)}button:disabled{opacity:.4;cursor:default}
+button.pri{background:var(--ac);color:#fff;border-color:var(--ac)}
+input,select,textarea{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:8px 10px;width:100%}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--ac);color:#fff}
+.top div{max-width:1000px;margin:0 auto;display:flex;gap:10px;align-items:center;padding:10px 14px}
+.logo{font:700 20px 'Noto Serif','Times New Roman',serif;cursor:pointer;white-space:nowrap}.top input{flex:1;border:0;min-width:0}
+.top button{background:rgba(255,255,255,.18);color:#fff;border:0;white-space:nowrap}
+.wrap{max-width:1000px;margin:0 auto;padding:16px 14px 70px}
+h2.sec{font:700 18px 'Noto Serif','Times New Roman',serif;margin:22px 0 12px;border-left:4px solid var(--ac);padding-left:10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chip{padding:4px 12px;border-radius:99px;font-size:13px}.chip.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:14px}
+.card{cursor:pointer}.card b{display:block;margin-top:6px;font-size:14px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card small{color:var(--mut)}
+.cv{aspect-ratio:3/4;border-radius:8px;background-size:cover;background-position:center;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font:700 15px 'Noto Serif','Times New Roman',serif;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.18);position:relative}
+.cv i{position:absolute;left:0;bottom:0;height:4px;background:#fff}
+.info{display:flex;gap:18px;flex-wrap:wrap}.info .cv{width:170px;flex:none}.info>div:last-child{flex:1;min-width:220px}
+h1{font:700 26px 'Noto Serif','Times New Roman',serif;margin:0 0 8px}.meta{color:var(--mut);margin:3px 0}.meta b{color:var(--fg)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.desc{white-space:pre-wrap;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px 14px}
+.cl{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0 20px}
+.cl a{padding:8px 2px;border-bottom:1px dashed var(--bd);cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cl a:hover,.cl a.cur{color:var(--ac)}
+.pg{display:flex;gap:8px;align-items:center;justify-content:center;margin:14px 0}
+.empty{text-align:center;color:var(--mut);padding:40px 0}
+#txt{max-width:720px;margin:0 auto;padding:18px 16px 30px;font-size:var(--fs,19px);line-height:var(--lh,1.8);font-family:var(--ff,'Noto Serif','Times New Roman',serif)}
+#txt h2{font-size:1.2em;text-align:center;margin:0 0 1.2em}#txt p{margin:0 0 1em;text-align:justify}
+.rb{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin:10px 0}.rb select{width:auto;max-width:220px}
+.crumb{text-align:center;color:var(--mut);font-size:13px;margin-top:6px}.crumb a{cursor:pointer;color:var(--ac)}
+.modal{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:14px}
+.modal>div{background:var(--bg);border-radius:12px;width:min(480px,100%);max-height:100%;overflow:auto;padding:18px}
+.modal label{display:block;margin:10px 0 4px;color:var(--mut);font-size:13px}.row{display:flex;gap:8px;align-items:center;margin:0 0 12px;flex-wrap:wrap}.row>span{width:80px;color:var(--mut)}
+.crow{display:flex;gap:4px;align-items:center;border-bottom:1px dashed var(--bd)}.crow a{flex:1;min-width:0;border:0}.mini{padding:2px 7px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="top"><div>
+  <span class="logo" id="logo">📖 Truyện Chữ <small style="font:12px system-ui;opacity:.75">v8</small></span>
+  <input id="q" type="search" placeholder="Tìm tên truyện, tác giả...">
+  <button id="up">+ Đăng truyện</button>
+</div></div>
+
+<div class="wrap" id="home">
+  <div class="chips" id="chips"></div>
+  <div id="rdg"></div>
+  <h2 class="sec" id="ht">Truyện mới đăng</h2>
+  <div class="grid" id="grid"></div>
+</div>
+
+<div class="wrap" id="story" hidden></div>
+
+<div id="rd" hidden>
+  <div class="crumb" id="cr"></div>
+  <div class="rb" id="rb1"></div>
+  <article id="txt"></article>
+  <div class="rb" id="rb2"></div>
+  <div class="rb"><button id="st">Aa Tùy chỉnh</button><button id="ec">✎ Sửa chương</button></div>
+</div>
+
+<div class="modal" id="m1" hidden><div>
+  <h2 id="mt" style="margin:0 0 6px;font-family:'Noto Serif','Times New Roman',serif">Đăng truyện mới</h2>
+  <label id="fl">File truyện (txt, docx, epub, pdf, odt, html, md) — chọn nhiều file thì ghép theo tên</label><input type="file" id="f" accept=".txt,.md,.html,.htm,.docx,.odt,.epub,.pdf,.csv,.json,.log,text/*" multiple>
+  <label>Tên truyện</label><input id="ft">
+  <label>Tác giả</label><input id="fa" placeholder="Đang cập nhật">
+  <label>Thể loại</label><select id="fg"></select>
+  <label>Tình trạng</label><select id="fs"><option>Đang ra</option><option>Hoàn thành</option></select>
+  <label>Giới thiệu</label><textarea id="fd" rows="4"></textarea>
+  <label>Ảnh bìa (không bắt buộc)</label><input type="file" id="fc" accept="image/*">
+  <div class="acts"><button class="pri" id="fok">Đăng truyện</button><button id="fno">Hủy</button></div>
+</div></div>
+
+<div class="modal" id="m3" hidden><div>
+  <h2 style="margin:0 0 6px;font-family:'Noto Serif','Times New Roman',serif">Sửa chương</h2>
+  <label>Tên chương</label><input id="ct">
+  <label>Nội dung</label><textarea id="cx" rows="14"></textarea>
+  <div class="acts"><button class="pri" id="cok">Lưu chương</button><button id="cno">Hủy</button><button id="cdl">Xóa chương</button></div>
+</div></div>
+
+<div class="modal" id="m2" hidden><div>
+  <div class="row"><span>Cỡ chữ</span><button data-s="-1">A−</button><button data-s="1">A+</button></div>
+  <div class="row"><span>Phông chữ</span><button data-f="serif">Serif</button><button data-f="sans">Sans</button></div>
+  <div class="row"><span>Giãn dòng</span><button data-l="-0.1">−</button><button data-l="0.1">+</button></div>
+  <div class="row"><span>Giao diện</span><button data-t="light">Sáng</button><button data-t="sepia">Sepia</button><button data-t="dark">Tối</button></div>
+  <button id="m2x">Đóng</button>
+</div></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const G=["Tiên Hiệp","Kiếm Hiệp","Huyền Huyễn","Ngôn Tình","Đô Thị","Võ Hiệp","Khoa Huyễn","Lịch Sử","Mạt Thế","Khác"];
+let db=null,mem=new Map(),books=[],cur=null,ci=0,gf="",cp=0,cfg={size:19,font:"serif",lh:1.8,theme:"auto"};
+try{Object.assign(cfg,JSON.parse(localStorage.getItem("cfg")||"{}"))}catch(e){}
+const saveCfg=()=>{try{localStorage.setItem("cfg",JSON.stringify(cfg))}catch(e){}};
+const getP=id=>{try{return JSON.parse(localStorage.getItem("p:"+id))||{}}catch(e){return{}}};
+const setP=(id,o)=>{try{localStorage.setItem("p:"+id,JSON.stringify(o))}catch(e){}};
+const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=String(x).normalize("NFC");return e};
+
+function openDB(){return new Promise(r=>{try{const q=indexedDB.open("truyen",1);q.onupgradeneeded=()=>q.result.createObjectStore("b",{keyPath:"id"});q.onsuccess=()=>r(q.result);q.onerror=()=>r(null)}catch(e){r(null)}})}
+const tx=(m,f)=>new Promise(r=>{try{const t=db.transaction("b",m),q=f(t.objectStore("b"));t.oncomplete=()=>r(q&&q.result);t.onerror=()=>r()}catch(e){r()}});
+const all=async()=>db?(await tx("readonly",s=>s.getAll())||[]):[...mem.values()];
+const put=async b=>{db?await tx("readwrite",s=>s.put(b)):mem.set(b.id,b)};
+const del=async id=>{db?await tx("readwrite",s=>s.delete(id)):mem.delete(id)};
+
+function parse(text){
+  const re=/^[ \t]*((?:chương|chuong|hồi|chapter)\s+[\dIVXLivxl]+[^\n]{0,80})$/gim,idx=[];let m;
+  while((m=re.exec(text)))idx.push([m[1].trim(),m.index]);
+  if(idx.length>=2){if(idx[0][1]>200)idx.unshift(["Mở đầu",0]);else idx[0][1]=0;return idx}
+  const out=[],W=/\S+/g;let s=0,n=1;
+  while(s<text.length){
+    let e=text.length,c=0,m;W.lastIndex=s;
+    while((m=W.exec(text))){if(++c>=3000){e=m.index+m[0].length;break}}
+    if(e<text.length){const k=text.indexOf("\n",e);e=k<0?text.length:k+1}
+    if(text.length-e<5000)e=text.length;
+    out.push(["Phần "+n++,s]);s=e;
+  }
+  return out.length?out:[["Nội dung",0]];
+}
+const JSZ="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js",PDFJ="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js",PDFW="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+const lib=u=>new Promise((ok,no)=>{const e=document.createElement("script");e.src=u;e.onload=ok;e.onerror=()=>no(new Error("Không tải được thư viện đọc file, hãy kiểm tra mạng"));document.head.appendChild(e)});
+const xml=x=>new DOMParser().parseFromString(x,"application/xml");
+function htmlText(h){
+  const d=new DOMParser().parseFromString(h,"text/html");
+  d.querySelectorAll("script,style,head").forEach(x=>x.remove());
+  d.querySelectorAll("br").forEach(x=>x.replaceWith("\n"));
+  d.querySelectorAll("p,div,h1,h2,h3,h4,h5,h6,li,tr").forEach(x=>x.append("\n"));
+  return d.body.textContent.replace(/[ \t]+\n/g,"\n").replace(/\n{3,}/g,"\n\n");
+}
+async function readFile(f){
+  const ext=(f.name.split(".").pop()||"").toLowerCase(),buf=await f.arrayBuffer();let t;
+  if(ext==="docx"||ext==="odt"||ext==="epub"){
+    await lib(JSZ);const z=await JSZip.loadAsync(buf);
+    if(ext==="docx"){const d=z.file("word/document.xml");if(!d)throw new Error("File docx không hợp lệ");
+      t=[...xml(await d.async("string")).getElementsByTagName("w:p")].map(p=>[...p.getElementsByTagName("*")].map(n=>n.nodeName==="w:t"?n.textContent:n.nodeName==="w:br"?"\n":n.nodeName==="w:tab"?" ":"").join("")).join("\n")}
+    else if(ext==="odt"){const c=z.file("content.xml");if(!c)throw new Error("File odt không hợp lệ");
+      t=[...xml(await c.async("string")).getElementsByTagName("*")].filter(n=>n.nodeName==="text:p"||n.nodeName==="text:h").map(n=>n.textContent).join("\n")}
+    else{const rf=xml(await z.file("META-INF/container.xml").async("string")).getElementsByTagName("rootfile")[0].getAttribute("full-path"),dir=rf.includes("/")?rf.slice(0,rf.lastIndexOf("/")+1):"",op=xml(await z.file(rf).async("string")),man={},out=[];
+      [...op.getElementsByTagName("item")].forEach(i=>man[i.getAttribute("id")]=i.getAttribute("href"));
+      for(const r of op.getElementsByTagName("itemref")){const h=man[r.getAttribute("idref")];if(!h)continue;const fz=z.file(decodeURIComponent(dir+h));if(!fz)continue;out.push(htmlText(await fz.async("string")).trim())}
+      t=out.filter(Boolean).join("\n\n")}
+  }else if(ext==="pdf"){
+    await lib(PDFJ);pdfjsLib.GlobalWorkerOptions.workerSrc=PDFW;
+    const pdf=await pdfjsLib.getDocument({data:new Uint8Array(buf)}).promise,pg=[];
+    for(let i=1;i<=pdf.numPages;i++){
+      const c=await(await pdf.getPage(i)).getTextContent(),ls=[];let ln="";
+      for(const it of c.items){ln+=it.str;if(it.hasEOL){ls.push(ln);ln=""}}if(ln)ls.push(ln);
+      let para="";ls.forEach(l=>{l=l.trim();if(l)para+=l+(/[.!?…”"’:;)]$/.test(l)?"\n":" ")});pg.push(para);
+    }
+    t=pg.join("\n");
+    if(t.replace(/\s/g,"").length<20)throw new Error("PDF này là ảnh scan, không có chữ để đọc");
+  }else if(ext==="doc"||ext==="rtf"||ext==="mobi"||ext==="azw3"){
+    throw new Error("Chưa hỗ trợ định dạng ."+ext+", hãy lưu lại thành .docx, .epub hoặc .pdf");
+  }else{
+    t=new TextDecoder("utf-8").decode(buf);
+    if(t.includes("\uFFFD")){try{t=new TextDecoder("windows-1258").decode(buf)}catch(e){}}
+    if(t.includes("\0"))throw new Error("Không đọc được file "+f.name+", định dạng chưa được hỗ trợ");
+    if(ext==="html"||ext==="htm"||ext==="xhtml")t=htmlText(t);
+    if(ext==="md"||ext==="markdown")t=t.replace(/^#{1,6}\s*/gm,"").replace(/\*\*|__/g,"");
+  }
+  return t.replace(/\r\n?/g,"\n").replace(/^\uFEFF/,"").normalize("NFC");
+}
+function resize(file){return new Promise(r=>{const u=URL.createObjectURL(file),i=new Image();i.onload=()=>{const c=document.createElement("canvas");c.width=300;c.height=400;const x=c.getContext("2d"),k=Math.max(300/i.width,400/i.height),w=i.width*k,h=i.height*k;x.drawImage(i,(300-w)/2,(400-h)/2,w,h);URL.revokeObjectURL(u);r(c.toDataURL("image/jpeg",.75))};i.onerror=()=>r(null);i.src=u})}
+
+function cover(b,prog){
+  const d=el("div","cv");
+  if(b.cover)d.style.backgroundImage="url("+b.cover+")";
+  else{let h=0;for(const ch of b.title)h+=ch.charCodeAt(0);d.style.background="linear-gradient(145deg,hsl("+h%360+",45%,38%),hsl("+(h+50)%360+",50%,22%))";d.textContent=b.title}
+  if(prog){const i=el("i");i.style.width=prog+"%";d.appendChild(i)}
+  return d;
+}
+const pct=b=>{const p=getP(b.id);return p.ch==null?0:Math.round(((p.ch||0)+(p.pos||0))/b.chs.length*100)};
+function view(v){["home","story","rd"].forEach(x=>$("#"+x).hidden=x!==v);scrollTo(0,0)}
+async function refresh(){books=(await all()).sort((a,b)=>b.id.localeCompare(a.id));renderHome()}
+
+function card(b,show){
+  const c=el("div","card");c.appendChild(cover(b,show?pct(b):0));
+  c.appendChild(el("b","",b.title));c.appendChild(el("small","",b.chs.length+" chương"));
+  c.onclick=()=>openStory(b);return c;
+}
+function renderHome(){
+  const ch=$("#chips");ch.textContent="";
+  ["Tất cả",...G].forEach(g=>{const b=el("button","chip"+((g==="Tất cả"?"":g)===gf?" on":""),g);b.onclick=()=>{gf=g==="Tất cả"?"":g;renderHome()};ch.appendChild(b)});
+  const q=$("#q").value.trim().toLowerCase();
+  const list=books.filter(b=>(!gf||b.genre===gf)&&(!q||(b.title+" "+b.author).toLowerCase().includes(q)));
+  const rd=$("#rdg");rd.textContent="";
+  const reading=list.filter(b=>getP(b.id).ch!=null);
+  if(reading.length&&!q&&!gf){rd.appendChild(el("h2","sec","Đang đọc"));const g=el("div","grid");reading.slice(0,6).forEach(b=>g.appendChild(card(b,1)));rd.appendChild(g)}
+  $("#ht").textContent=q?"Kết quả tìm kiếm":gf?"Thể loại: "+gf:"Truyện mới đăng";
+  const g=$("#grid");g.textContent="";
+  if(!list.length){g.innerHTML='<div class="empty" style="grid-column:1/-1">'+(books.length?"Không tìm thấy truyện nào.":"Chưa có truyện nào. Bấm “+ Đăng truyện” để thêm truyện đầu tiên.")+"</div>";return}
+  list.forEach(b=>g.appendChild(card(b)));
+}
+
+function openStory(b){cur=b;cp=0;renderStory();view("story")}
+function renderStory(){
+  const s=$("#story");s.textContent="";const b=cur,p=getP(b.id);
+  const back=el("button","","← Trang chủ");back.onclick=()=>{view("home");renderHome()};s.appendChild(back);
+  const info=el("div","info");info.style.marginTop="14px";info.appendChild(cover(b));
+  const r=el("div");r.appendChild(el("h1","",b.title));
+  [["Tác giả",b.author||"Đang cập nhật"],["Thể loại",b.genre],["Tình trạng",b.status],["Số chương",b.chs.length]].forEach(([k,v])=>{const m=el("div","meta");m.append(k+": ",Object.assign(el("b"),{textContent:v}));r.appendChild(m)});
+  const a=el("div","acts");
+  const b1=el("button","pri","Đọc từ đầu");b1.onclick=()=>openRead(0,0);a.appendChild(b1);
+  if(p.ch!=null){const b2=el("button","","Đọc tiếp: "+b.chs[Math.min(p.ch,b.chs.length-1)][0].slice(0,28));b2.onclick=()=>openRead(p.ch,p.pos||0);a.appendChild(b2)}
+  const be=el("button","","Sửa / thêm chương");be.onclick=()=>openForm(b);a.appendChild(be);const bd=el("button","","Xóa truyện");bd.onclick=async()=>{if(confirm("Xóa truyện này?")){await del(b.id);try{localStorage.removeItem("p:"+b.id)}catch(e){}await refresh();view("home")}};a.appendChild(bd);
+  r.appendChild(a);info.appendChild(r);s.appendChild(info);
+  if(b.desc){s.appendChild(el("h2","sec","Giới thiệu"));s.appendChild(el("div","desc",b.desc))}
+  s.appendChild(el("h2","sec","Danh sách chương"));
+  const per=60,pages=Math.ceil(b.chs.length/per),cl=el("div","cl");
+  b.chs.slice(cp*per,cp*per+per).forEach((c,i)=>{const g=cp*per+i,r=el("div","crow"),x=el("a","",c[0]),e1=el("button","mini","✎"),e2=el("button","mini","🗑");x.onclick=()=>openRead(g,0);e1.title="Sửa chương";e2.title="Xóa chương";e1.onclick=()=>openEc(g);e2.onclick=()=>rmCh(g);r.append(x,e1,e2);cl.appendChild(r)});
+  s.appendChild(cl);
+  if(pages>1){const pg=el("div","pg"),pv=el("button","","←"),nx=el("button","","→");pv.disabled=cp===0;nx.disabled=cp>=pages-1;pv.onclick=()=>{cp--;renderStory()};nx.onclick=()=>{cp++;renderStory()};pg.append(pv,el("span","","Trang "+(cp+1)+"/"+pages),nx);s.appendChild(pg)}
+}
+
+function bar(id){
+  const d=$("#"+id);d.textContent="";
+  const pv=el("button","","← Chương trước"),nx=el("button","pri","Chương sau →"),sel=el("select");
+  pv.disabled=ci===0;nx.disabled=ci===cur.chs.length-1;pv.onclick=()=>render(ci-1,0);nx.onclick=()=>render(ci+1,0);
+  cur.chs.forEach((c,i)=>{const o=el("option","",c[0]);o.value=i;if(i===ci)o.selected=true;sel.appendChild(o)});
+  sel.onchange=()=>render(+sel.value,0);d.append(pv,sel,nx);if(id==="rb1"){const e1=el("button","","✎ Sửa"),e2=el("button","","🗑 Xóa");e1.onclick=()=>openEc(ci);e2.onclick=()=>rmCh(ci);d.append(e1,e2)}
+}
+function openRead(i,pos){view("rd");render(i,pos)}
+function render(i,pos){
+  ci=i;const c=cur.chs,s=c[i][1],e=i+1<c.length?c[i+1][1]:undefined;
+  const cr=$("#cr");cr.textContent="";const a=el("a","",cur.title);a.onclick=()=>{view("story")};cr.append(a," › "+c[i][0]);
+  const t=$("#txt");t.textContent="";t.appendChild(el("h2","",c[i][0]));
+  const lines=cur.text.slice(s,e).split("\n").map(x=>x.trim()).filter(Boolean);
+  if(lines[0]===c[i][0])lines.shift();
+  lines.forEach(x=>t.appendChild(el("p","",x)));
+  bar("rb1");bar("rb2");
+  requestAnimationFrame(()=>scrollTo(0,pos?pos*(document.documentElement.scrollHeight-innerHeight):0));
+  setP(cur.id,{ch:i,pos:pos||0});
+}
+let tm;addEventListener("scroll",()=>{if(!cur||$("#rd").hidden)return;clearTimeout(tm);tm=setTimeout(()=>{const m=document.documentElement.scrollHeight-innerHeight;setP(cur.id,{ch:ci,pos:m>0?scrollY/m:0})},300)});
+addEventListener("keydown",e=>{if($("#rd").hidden||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;if(e.key==="ArrowLeft"&&ci>0)render(ci-1,0);if(e.key==="ArrowRight"&&ci<cur.chs.length-1)render(ci+1,0)});
+
+$("#logo").onclick=()=>{$("#q").value="";gf="";view("home");renderHome()};
+$("#q").oninput=()=>{if($("#home").hidden)view("home");renderHome()};
+$("#fg").innerHTML=G.map(g=>"<option>"+g+"</option>").join("");
+let editId=null;
+function openForm(b){
+  editId=b?b.id:null;["f","ft","fa","fd","fc"].forEach(i=>$("#"+i).value="");
+  $("#mt").textContent=b?"Chỉnh sửa truyện":"Đăng truyện mới";
+  $("#fl").textContent=b?"Thêm chương mới từ file (txt, docx, epub, pdf...; không bắt buộc, sẽ nối vào cuối truyện)":"File truyện (txt, docx, epub, pdf, odt, html, md) — chọn nhiều file thì ghép theo tên";
+  $("#fok").textContent=b?"Lưu thay đổi":"Đăng truyện";
+  if(b){$("#ft").value=b.title;$("#fa").value=b.author||"";$("#fg").value=b.genre||"Khác";$("#fs").value=b.status||"Đang ra";$("#fd").value=b.desc||""}
+  $("#m1").hidden=false;
+}
+$("#up").onclick=()=>openForm(null);
+let ec=0;
+function openEc(i){ec=i;const c=cur.chs,st=c[i][1],en=i+1<c.length?c[i+1][1]:undefined;let b=cur.text.slice(st,en).trim().split("\n");if(b[0].trim()===c[i][0])b.shift();$("#ct").value=c[i][0];$("#cx").value=b.join("\n").trim();$("#m3").hidden=false}
+async function chg(i,rm,t,b){
+  const c=cur.chs,st=c[i][1],en=i+1<c.length?c[i+1][1]:cur.text.length,r=rm?"":t+"\n"+b+"\n\n",d=r.length-(en-st);
+  cur.text=cur.text.slice(0,st)+r+cur.text.slice(en);
+  if(rm)c.splice(i,1);else c[i][0]=t;
+  for(let k=rm?i:i+1;k<c.length;k++)c[k][1]+=d;
+  await put(cur);
+}
+async function rmCh(i){
+  if(cur.chs.length<2){alert("Truyện phải còn ít nhất 1 chương");return}
+  if(!confirm("Xóa chương “"+cur.chs[i][0]+"”?"))return;
+  await chg(i,true);$("#m3").hidden=true;
+  if(!$("#rd").hidden){ci=Math.min(ci>i?ci-1:ci,cur.chs.length-1);render(ci,0)}
+  else{cp=Math.max(0,Math.min(cp,Math.ceil(cur.chs.length/60)-1));renderStory()}
+}
+$("#ec").onclick=()=>openEc(ci);
+$("#cno").onclick=()=>$("#m3").hidden=true;
+$("#cok").onclick=async()=>{await chg(ec,false,$("#ct").value.trim()||cur.chs[ec][0],$("#cx").value.trim());$("#m3").hidden=true;if(!$("#rd").hidden)render(ci,0);else renderStory()};
+$("#cdl").onclick=()=>rmCh(ec);
+$("#fno").onclick=()=>$("#m1").hidden=true;
+$("#f").onchange=e=>{const f=e.target.files[0];if(f&&!$("#ft").value)$("#ft").value=f.name.replace(/\.[^.]+$/,"")};
+$("#fok").onclick=async()=>{
+  const fs=[...$("#f").files].sort((a,b)=>a.name.localeCompare(b.name,"vi",{numeric:true}));
+  if(!fs.length&&!editId){alert("Hãy chọn file truyện");return}
+  const btn=$("#fok");btn.disabled=true;btn.textContent="Đang xử lý...";
+  try{
+    const parts=[];for(const f of fs)parts.push(await readFile(f));
+    const text=parts.join("\n\n"),cv=$("#fc").files[0]?await resize($("#fc").files[0]):null;
+    if(editId){
+      const o=books.find(x=>x.id===editId),nb={...o,title:$("#ft").value.trim()||o.title,author:$("#fa").value.trim(),genre:$("#fg").value,status:$("#fs").value,desc:$("#fd").value.trim(),cover:cv||o.cover};
+      if(text.trim()){const add=parse(text),base=o.text.length+2,cnt=o.chs.length;nb.text=o.text+"\n\n"+text;nb.chs=o.chs.concat(add.map(([t,st])=>[/^Phần \d+$/.test(t)?"Phần "+(cnt+ +t.slice(5)):t,st+base]))}
+      await put(nb);
+    }else await put({id:Date.now()+"-"+Math.random().toString(36).slice(2,6),title:$("#ft").value.trim()||fs[0].name.replace(/\.[^.]+$/,""),author:$("#fa").value.trim(),genre:$("#fg").value,status:$("#fs").value,desc:$("#fd").value.trim(),cover:cv,text,chs:parse(text)});
+    $("#m1").hidden=true;await refresh();
+    if(editId){cur=books.find(x=>x.id===editId);renderStory();editId=null}
+  }catch(e){alert("Không đăng được truyện: "+(e&&e.message||"lỗi không rõ"))}
+  btn.disabled=false;btn.textContent="Đăng truyện";
+};
+$("#st").onclick=()=>$("#m2").hidden=false;$("#m2x").onclick=()=>$("#m2").hidden=true;
+$("#m2").addEventListener("click",e=>{
+  if(e.target===$("#m2"))e.target.hidden=true;const d=e.target.dataset;if(!d)return;
+  if(d.s)cfg.size=Math.min(34,Math.max(13,cfg.size+ +d.s*2));
+  if(d.f)cfg.font=d.f;if(d.l)cfg.lh=Math.min(2.4,Math.max(1.3,+(cfg.lh+ +d.l).toFixed(1)));
+  if(d.t)cfg.theme=d.t;apply();saveCfg();
+});
+function apply(){
+  const r=document.documentElement;cfg.theme==="auto"?r.removeAttribute("data-theme"):r.dataset.theme=cfg.theme;
+  r.style.setProperty("--fs",cfg.size+"px");r.style.setProperty("--lh",cfg.lh);
+  r.style.setProperty("--ff",cfg.font==="sans"?"system-ui,-apple-system,'Segoe UI',Roboto,sans-serif":"'Noto Serif','Times New Roman',serif");
+}
+apply();openDB().then(d=>{db=d;refresh()});
+</script>
+</body>
+</html>
